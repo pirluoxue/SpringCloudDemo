@@ -1,0 +1,49 @@
+
+server:
+  port: 9000
+spring:
+  application:
+    name: spring-cloud-eureka
+  profiles: eureka1
+eureka:
+  instance:
+    hostname: eureka1
+  client:
+    service-url:
+      defaultZone: http://eureka2:9001/eureka/, http://eureka3:9002/eureka/
+
+---
+spring:
+  application:
+    name: spring-cloud-eureka
+  profiles: eureka2
+server:
+  port: 9001
+eureka:
+  instance:
+    hostname: eureka2
+  client:
+    service-url:
+      defaultZone: http://eureka1:9000/eureka/,http://eureka3:9002/eureka/
+
+---
+server:
+  port: 9002
+spring:
+  application:
+    name: spring-cloud-eureka
+  profiles: eureka3
+eureka:
+  instance:
+    hostname: eureka3
+  client:
+    service-url:
+      defaultZone: http://eureka1:9000/eureka/,http://eureka2:9001/eureka/
+
+
+##表示是否将自己注册到Eureka Server，默认为true。
+#eureka.client.register-with-eureka=false
+##表示是否从Eureka Server获取注册信息，默认为true
+#eureka.client.fetch-registry=false
+##设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个地址。默认是http://localhost:8761/eureka ；多个地址可使用 , 分隔
+#eureka.client.serviceUrl.defaultZone=http://localhost:${server.port}/eureka/
