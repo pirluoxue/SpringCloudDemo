@@ -16,14 +16,22 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <eureka-server-version>2.1.1.RELEASE</eureka-server-version>
+        <eureka-client-version>2.1.1.RELEASE</eureka-client-version>
+        <spring-cloud-starter-version>2.1.1.RELEASE</spring-cloud-starter-version>
     </properties>
 
     <dependencies>
+        <!-- spring -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-            <version>${eureka-server-version}</version>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <version>${eureka-client-version}</version>
         </dependency>
 
         <dependency>

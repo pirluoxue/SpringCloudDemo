@@ -16,12 +16,24 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <eureka-server-version>2.1.1.RELEASE</eureka-server-version>
+        <eureka-client-version>2.1.1.RELEASE</eureka-client-version>
         <netflix-ribbon-version>2.1.1.RELEASE</netflix-ribbon-version>
         <openfeign-version>2.1.1.RELEASE</openfeign-version>
     </properties>
 
     <dependencies>
+        <!-- spring -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.netflix.hystrix/hystrix-core -->
+        <dependency>
+            <groupId>com.netflix.hystrix</groupId>
+            <artifactId>hystrix-core</artifactId>
+            <version>1.5.18</version>
+        </dependency>
 
         <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
         <dependency>
@@ -44,8 +56,8 @@
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
-            <version>${eureka-server-version}</version>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+            <version>${eureka-client-version}</version>
         </dependency>
 
         <dependency>

@@ -1,5 +1,6 @@
 package com.example.client.service;
 
+import com.example.client.service.hystrixImpl.HystrixFeignImpl;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Date 2019-06-04
  * @Created by chen_bq
  */
-@FeignClient(name = "spring-cloud-producer")
+@FeignClient(name = "spring-cloud-producer", fallback = HystrixFeignImpl.class)
 public interface FeignService {
 
     @RequestMapping(value = "product")

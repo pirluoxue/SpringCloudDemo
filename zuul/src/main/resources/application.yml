@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: spring-cloud-zuul
+server:
+  port: 9030
+
+#这里的配置表示，访问/test/** 直接重定向到http://localhost:9020/**
+#test是自定义链路
+zuul:
+  routes:
+    test:
+      path: /test/**
+      url: http://localhost:9020/
+    #    serviceId: users_service
+    autoTest:
+      path: /**
+      url: http://localhost:9020/clientFeign/
+    #    serviceId: users_service
+    proxyTest:
+      path: /feign/**
+      serviceId: spring-cloud-consumer
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:9000/eureka/,http://eureka2:9001/eureka/,http://eureka3:9002/eureka/
