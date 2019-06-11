@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: spring-cloud-config-client
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: test
+    password: 123456
+
+server:
+  port: 8002
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
