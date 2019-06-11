@@ -63,6 +63,7 @@ public class PostZuulFilter extends ZuulFilter {
         System.out.println("post ResponseBody-----------> > >  " + ctx.getResponseBody());
         System.out.println("post request ContentType-----------> > >  " + ctx.getRequest().getContentType());
         System.out.println("post response ContentType-----------> > >  " + response.getContentType());
+        //若返回数据流存在信息，并且ctx也设置responseBody，则客户端仅能接受到ctx中的responseBody
 //        ctx.setResponseBody("测试post返回");
         return null;
     }
