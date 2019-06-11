@@ -7,6 +7,10 @@ spring:
     config:
       server:
         git:
+          uri: https://github.com/pirluoxue/MySpringCloud/
+          search-paths: //相对路径，多个路径用逗号隔开
+          username:
+          password:
 
   rabbitmq:
     host: localhost
@@ -14,11 +18,13 @@ spring:
     username: test
     password: 123456
 
+#使用消息总线进行更新，需要使用eureka
 eureka:
   client:
     service-url:
       defaultZone: http://eureka1:9000/eureka/,http://eureka2:9001/eureka/,http://eureka3:9002/eureka/
 
+#这个部分是2.x之后的配置方式，之前是management.security.enabled=false这样的
 management:
   endpoints:
     web:
