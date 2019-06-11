@@ -16,7 +16,7 @@ public class ProductController {
     @RequestMapping("product")
     @ResponseBody
     public String testProduct(){
-        return "Hello Spring Cloud";
+        return "Hello Spring Cloud 中文测试";
     }
 
 
