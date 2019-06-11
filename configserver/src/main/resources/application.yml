@@ -1,0 +1,28 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: spring-cloud-config-server
+  cloud:
+    config:
+      server:
+        git:
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: test
+    password: 123456
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:9000/eureka/,http://eureka2:9001/eureka/,http://eureka3:9002/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+
+
