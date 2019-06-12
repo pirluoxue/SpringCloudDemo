@@ -16,10 +16,21 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <zuul.version>2.1.1.RELEASE</zuul.version>
-        <eureka-client-version>2.1.1.RELEASE</eureka-client-version>
     </properties>
 
+    <dependencyManagement>
+<!--        定义公共依赖的版本号-->
+        <dependencies>
+            <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Greenwich.SR1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
         <dependency>
@@ -31,14 +42,14 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-            <version>${eureka-client-version}</version>
+<!--            <version>${eureka-client-version}</version>-->
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-zuul -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
-            <version>${zuul.version}</version>
+<!--            <version>${zuul.version}</version>-->
         </dependency>
 
 

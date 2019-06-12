@@ -16,10 +16,20 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <eureka-client-version>2.1.1.RELEASE</eureka-client-version>
-        <netflix-ribbon-version>2.1.1.RELEASE</netflix-ribbon-version>
-        <openfeign-version>2.1.1.RELEASE</openfeign-version>
+        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
     </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <!-- spring -->
@@ -51,13 +61,11 @@
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
-            <version>${openfeign-version}</version>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-            <version>${eureka-client-version}</version>
         </dependency>
 
         <dependency>

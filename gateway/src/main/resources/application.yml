@@ -1,0 +1,14 @@
+server:
+  port: 9035
+spring:
+  cloud:
+    gateway:
+      enabled: true
+      routes:
+#      一定要加 -
+      - id: gateway_route
+        uri: https://www.mhchinese.wiki/
+#        路由条件，Predicate 接受一个输入参数，返回一个布尔值结果。该接口包含多种默认方法来将 Predicate 组合成其他复杂的逻辑（比如：与，或，非）。
+        predicates:
+        - Path=/wiki
+#          filters：过滤规则，本示例暂时没用。
