@@ -1,14 +1,27 @@
 server:
   port: 9035
 spring:
+  application:
+    name: cloud-gateway-eureka
   cloud:
     gateway:
       enabled: true
       routes:
 #      一定要加 -
       - id: gateway_route
-        uri: https://www.mhchinese.wiki/
+        uri: https://www.baidu.com
 #        路由条件，Predicate 接受一个输入参数，返回一个布尔值结果。该接口包含多种默认方法来将 Predicate 组合成其他复杂的逻辑（比如：与，或，非）。
         predicates:
-        - Path=/wiki
-#          filters：过滤规则，本示例暂时没用。
+        - Path=/more
+      #服务发现并注册
+      discovery:
+        locator:
+          enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka1:9000/eureka/,http://eureka2:9001/eureka/,http://eureka3:9002/eureka/
+
+logging:
+  level:
+    org.springframework.cloud.gateway: debug
