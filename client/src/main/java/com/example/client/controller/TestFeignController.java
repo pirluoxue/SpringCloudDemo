@@ -3,10 +3,7 @@ package com.example.client.controller;
 import com.example.client.service.FeignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Classname FeignController
@@ -23,7 +20,24 @@ public class TestFeignController {
     @RequestMapping(value = "clientFeign",method = RequestMethod.GET)
     @ResponseBody
     public String testFeign() {
-        return feignService.testProduct();
+        return feignService.product();
     }
+
+    @RequestMapping(value = "paramFeign",method = RequestMethod.GET)
+    @ResponseBody
+    public String testParam(@RequestParam String param) {
+        return feignService.paramProductByFeign(param);
+    }
+
+    @RequestMapping("subjectivityHystrix")
+    @ResponseBody
+    public String subjectivityHystrix(){
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("<h1>gateway forward subjectivityHystrix</h1>");
+        stringBuilder.append("<h1>主动触发hystrix 成功</h1>");
+        return stringBuilder.toString();
+    }
+
+
 
 }

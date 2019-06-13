@@ -3,6 +3,10 @@ server:
 spring:
   application:
     name: cloud-gateway-eureka
+  redis:
+    host: localhost
+    password: 123456
+    port: 6379
   cloud:
     gateway:
       enabled: true
@@ -13,6 +17,20 @@ spring:
 #        路由条件，Predicate 接受一个输入参数，返回一个布尔值结果。该接口包含多种默认方法来将 Predicate 组合成其他复杂的逻辑（比如：与，或，非）。
         predicates:
         - Path=/more
+
+#      一定要加 -
+      - id: gateway_route2
+        uri: http://localhost:9010
+#        路由条件，Predicate 接受一个输入参数，返回一个布尔值结果。该接口包含多种默认方法来将 Predicate 组合成其他复杂的逻辑（比如：与，或，非）。
+        predicates:
+        - Path=/paramProduct
+        filters:
+        - AddRequestParameter=param, test
+        - name: RequestRateLimiter
+          args:
+            redis-rate-limiter.replenishRate: 1
+            redis-rate-limiter:burstCapacity: 2
+            key-resolver: "#{@apiKeyResolver}"
       #服务发现并注册
       discovery:
         locator:

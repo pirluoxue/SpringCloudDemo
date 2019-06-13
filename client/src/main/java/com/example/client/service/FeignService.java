@@ -13,10 +13,14 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Created by chen_bq
  */
 @FeignClient(name = "spring-cloud-producer", fallback = HystrixFeignImpl.class)
+@Service
 public interface FeignService {
 
     @RequestMapping(value = "product")
-    public String testProduct();
+    public String product();
+
+    @RequestMapping(value = "paramProduct")
+    public String paramProductByFeign(@RequestParam String param);
 
 
 }

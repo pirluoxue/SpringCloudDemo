@@ -13,7 +13,15 @@ import org.springframework.stereotype.Component;
 public class HystrixFeignImpl implements FeignService {
 
     @Override
-    public String testProduct() {
+    public String product() {
         return "this is HystrixFeign CallBack";
+    }
+
+    @Override
+    public String paramProductByFeign(String param) {
+        StringBuilder error = new StringBuilder();
+        error.append("<h1>paramProduct was CallBack</h1>");
+        error.append("<h1>causeBy param has error</h1>");
+        return error.toString();
     }
 }
