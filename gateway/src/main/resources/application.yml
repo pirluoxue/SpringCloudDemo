@@ -28,8 +28,10 @@ spring:
         - AddRequestParameter=param, test
         - name: RequestRateLimiter
           args:
+            #姑且加个备注，看清开头是redis，所以一定要！！！配置redis
             redis-rate-limiter.replenishRate: 1
-            redis-rate-limiter:burstCapacity: 2
+            redis-rate-limiter.burstCapacity: 2
+#            rate-limiter: "#{@rateLimiter}"
             key-resolver: "#{@apiKeyResolver}"
       #服务发现并注册
       discovery:
