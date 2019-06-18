@@ -50,6 +50,9 @@ public class GatewayBean {
                         .uri("http://localhost:9020"))
                 .route("miao3", r -> r.path("/comma")
                         .uri("https://www.baidu.com/?"))
+                .route("miao6", r -> r.path("/questionMark")
+                        .filters( f -> f.stripPrefix(1).prefixPath("/spring-cloud-gateway"))
+                        .uri("https://cloud.spring.io"))
 //                .route("miao4", r -> r.path("/paramProduct")
 //                        //设置过滤器自动补充参数，参数必须加密，否则默认不会加密，传递的特殊符号将会引起信息异常
 //                        .filters(f -> f.addRequestParameter("param"
@@ -59,7 +62,7 @@ public class GatewayBean {
                         .filters(f -> f.addRequestParameter("param"
                                 , CommonUtils.defaultEnCoderUri("<h1>Test feign use product default param method</h1><hr/><h1>中文测试</h1>"))
                                 //hystrix配置为该路由的熔断配置，即一级熔断之后可以通过forward在gateway内再次跳转另一级
-//                                .hystrix(h -> h.setName("Hystrix").setFallbackUri("forward:/gatewayFallBack"))
+                                .hystrix(h -> h.setName("Hystrix").setFallbackUri("forward:/gatewayFallBack"))
                                 //测试路由其他可用服务，结果：不可直接再路由
 //                                .hystrix(h -> h.setName("Hystrix").setFallbackUri("forward:/product"))
                                 //测试gateway外再路由，即gateway服务内创建子控制层做再路由，结果：显而易见的通过。但这种方式不够优雅
