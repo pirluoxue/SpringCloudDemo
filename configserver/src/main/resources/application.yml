@@ -22,7 +22,7 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://eureka1:9000/eureka/,http://eureka2:9001/eureka/,http://eureka3:9002/eureka/
+      defaultZone: http://test:123456@eureka1:9000/eureka/,http://test:123456@eureka2:9001/eureka/,http://test:123456@eureka3:9002/eureka/
 
 #这个部分是2.x之后的配置方式，之前是management.security.enabled=false这样的
 #总线刷新地址也就是http://localhost:8001/actuator/bus-refresh

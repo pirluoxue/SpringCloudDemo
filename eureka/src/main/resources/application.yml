@@ -4,27 +4,39 @@ server:
 spring:
   application:
     name: spring-cloud-eureka
+  security:
+    user:
+      name: test
+      password: 123456
+      roles: CLIENT
   profiles: eureka1
 eureka:
   instance:
     hostname: eureka1
+    prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://eureka2:9001/eureka/, http://eureka3:9002/eureka/
+      defaultZone: http://test:123456@eureka2:9001/eureka/, http://test:123456@eureka3:9002/eureka/
 
 ---
 spring:
   application:
     name: spring-cloud-eureka
+  security:
+    user:
+      name: test
+      password: 123456
+      roles: CLIENT
   profiles: eureka2
 server:
   port: 9001
 eureka:
   instance:
     hostname: eureka2
+    prefer-ip-address: true
   client:
     service-url:
-      defaultZone: http://eureka1:9000/eureka/,http://eureka3:9002/eureka/
+      defaultZone: http://test:123456@eureka1:9000/eureka/,http://test:123456@eureka3:9002/eureka/
 
 ---
 server:
@@ -32,13 +44,19 @@ server:
 spring:
   application:
     name: spring-cloud-eureka
+    prefer-ip-address: true
+  security:
+    user:
+      name: test
+      password: 123456
+      roles: CLIENT
   profiles: eureka3
 eureka:
   instance:
     hostname: eureka3
   client:
     service-url:
-      defaultZone: http://eureka1:9000/eureka/,http://eureka2:9001/eureka/
+      defaultZone: http://test:123456@eureka1:9000/eureka/,http://test:123456@eureka2:9001/eureka/
 
 
 ##表示是否将自己注册到Eureka Server，默认为true。
