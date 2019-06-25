@@ -46,9 +46,9 @@ public class PreZuulFilter extends ZuulFilter {
 //        //并且，允许转发，则转发结果将会拥有响应的编码，即若setResponseBody后，返回的就是"返回内容 123"。若不允许转发，则返回就变成了”？？？ 123“
 //        ctx.set("isSuccess", true);
         /*可供的一些常用操作*/
-        System.out.println("request ContentType-----------> > >  " + request.getContentType());
-        System.out.println("response ContentType-----------> > >  " + ctx.getResponse().getContentType());
-        System.out.println("PreZuulFilter 进行路由");
+//        System.out.println("request ContentType-----------> > >  " + request.getContentType());
+//        System.out.println("response ContentType-----------> > >  " + ctx.getResponse().getContentType());
+//        System.out.println("PreZuulFilter 进行路由");
         return null;
     }
 }

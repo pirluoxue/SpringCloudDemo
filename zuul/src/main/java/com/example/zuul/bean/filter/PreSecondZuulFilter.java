@@ -45,7 +45,7 @@ public class PreSecondZuulFilter extends ZuulFilter {
 //        ctx.setResponseBody("返回内容 456");
 //        ctx.set("isSuccess", false);
         /*可供的一些常用操作*/
-        System.out.println("PreSecondZuulFilter 不进行路由");
+//        System.out.println("PreSecondZuulFilter 不进行路由");
         return null;
     }
 }

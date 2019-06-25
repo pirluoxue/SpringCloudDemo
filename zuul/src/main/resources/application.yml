@@ -20,6 +20,12 @@ zuul:
       path: /feign/**
       serviceId: spring-cloud-consumer
 
+    proxyTest2:
+      path: /product/**
+      serviceId: spring-cloud-producer
+  sensitiveHeaders: Cookie,Set-Cookie
+  ignored-headers: Access-Control-Allow-Credentials, Access-Control-Allow-Origin, Access-Control-Allow-Methods
+
 eureka:
   client:
     service-url:

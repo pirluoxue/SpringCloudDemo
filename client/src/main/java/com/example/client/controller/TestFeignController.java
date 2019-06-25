@@ -38,6 +38,17 @@ public class TestFeignController {
         return stringBuilder.toString();
     }
 
+    @RequestMapping("freemarkerTestFeign")
+    @ResponseBody
+    public String freemarkerTestFeign(){
+        return feignService.freemarkerTestByFeign();
+    }
+
+    @RequestMapping("404")
+    public String test404(){
+        return "404";
+    }
+
 
 
 }

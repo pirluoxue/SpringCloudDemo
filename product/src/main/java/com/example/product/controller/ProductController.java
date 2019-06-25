@@ -29,4 +29,9 @@ public class ProductController {
         return "get address：" + request.getLocalAddr() + ":" + request.getLocalPort() + param;
     }
 
+    @RequestMapping("freemarker")
+    public String freemarker(){
+        return "test";
+    }
+
 }

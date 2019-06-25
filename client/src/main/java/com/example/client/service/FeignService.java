@@ -1,6 +1,7 @@
 package com.example.client.service;
 
 import com.example.client.service.hystrixImpl.HystrixFeignImpl;
+import com.netflix.ribbon.proxy.annotation.Hystrix;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,5 +23,7 @@ public interface FeignService {
     @RequestMapping(value = "paramProduct")
     public String paramProductByFeign(@RequestParam String param);
 
+    @RequestMapping(value = "freemarker")
+    public String freemarkerTestByFeign();
 
 }

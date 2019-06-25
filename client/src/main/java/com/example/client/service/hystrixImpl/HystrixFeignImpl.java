@@ -24,4 +24,9 @@ public class HystrixFeignImpl implements FeignService {
         error.append("<h1>causeBy param has error</h1>");
         return error.toString();
     }
+
+    @Override
+    public String freemarkerTestByFeign() {
+        return "404";
+    }
 }
