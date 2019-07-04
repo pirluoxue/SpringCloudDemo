@@ -1,9 +1,12 @@
 spring:
   application:
     name: spring-cloud-consumer
+  freemarker:
+    request-context-attribute: acp
 
 server:
   port: 9020
+
 eureka:
   client:
     service-url:

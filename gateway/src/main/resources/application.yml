@@ -37,6 +37,13 @@ spring:
       discovery:
         locator:
           enabled: true
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: "*"
+            allowedMethods:
+            - GET
+            - POST
 eureka:
   client:
     service-url:
